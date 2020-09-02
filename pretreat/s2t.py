@@ -2,14 +2,13 @@ from opencc import OpenCC
 import logging
 import sys
 
-
 def main():
     '''
-        convert simplified Chinese to traditional Chinese
+        convert simplified Chinese file to traditional Chinese file line by line
     :return:
     '''
     if len(sys.argv) != 2:
-        print("Usage: python3 " + sys.argv[0] + " D:\python\\nlp_tutorial")
+        print("Usage: python " + sys.argv[0] + " D:\python\\nlp_tutorial")
         exit()
 
     logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
@@ -25,7 +24,6 @@ def main():
                 logging.info("已處理 %d 行" % line_num)
         output.close()
         f.close()
-
 
 if __name__ == "__main__":
     main()

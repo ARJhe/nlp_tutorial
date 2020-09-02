@@ -1,6 +1,9 @@
 Install:
 pip3 install jieba
 pip3 install --upgrade gensim
+
+pip3 install django==3.0.2
+pip install psycopg2
 NLP
 1. 樣板式
 2. 檢索式
@@ -8,5 +11,3 @@ NLP
 
 Approch:
 輸入分詞後抓取重點字，ex: 幫我開「燈」
-
-opencc -i t.txt -o t.txt -c t2s.json
