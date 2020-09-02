@@ -1,0 +1,12 @@
+Install:
+pip3 install jieba
+pip3 install --upgrade gensim
+NLP
+1. 樣板式
+2. 檢索式
+3. 生成式
+
+Approch:
+輸入分詞後抓取重點字，ex: 幫我開「燈」
+
+opencc -i t.txt -o t.txt -c t2s.json

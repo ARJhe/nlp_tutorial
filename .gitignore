@@ -1,0 +1,8 @@
+.idea/
+source_data/
+venv/
+
+converted_text.txt
+wiki_texts.txt
+
+zhwiki-latest-pages-articles.xml.bz2
