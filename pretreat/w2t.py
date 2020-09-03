@@ -1,7 +1,7 @@
-import logging
-import sys
-
+# -*- coding: utf-8 -*-
+import logging, sys
 from gensim.corpora import WikiCorpus
+
 
 def main():
     '''
@@ -22,6 +22,7 @@ def main():
             texts_num += 1
             if texts_num % 10000 == 0:
                 logging.info("已處理 %d 篇文章" % texts_num)
+
 
 if __name__ == "__main__":
     main()

@@ -1,7 +1,9 @@
 ../.idea/
 source_data/
 venv/
+pretreat/jieba_dict
 pretreat/converted_text.txt
+pretreat/wiki_seg.txt
 wiki_texts.txt
 
 source_data/zhwiki-latest-pages-articles.xml.bz2

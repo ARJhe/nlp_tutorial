@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from opencc import OpenCC
 import logging
 import sys
@@ -7,14 +8,14 @@ def main():
         convert simplified Chinese file to traditional Chinese file line by line
     :return:
     '''
-    if len(sys.argv) != 2:
-        print("Usage: python " + sys.argv[0] + " D:\python\\nlp_tutorial")
+    if len(sys.argv) != 3:
+        print("Usage: python " + sys.argv[0] + " input.txt output.txt")
         exit()
 
     logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
     cc = OpenCC('s2tw')
-    output = open("converted_text.txt", "w+", encoding='utf-8')  # w+: write to file and create if not exist
+    output = open(sys.argv[2], "w+", encoding='utf-8')  # w+: write to file and create if not exist
     logging.info("Start converting!")
     with open(sys.argv[1], "r", encoding='utf-8') as f:
         for line_num, line in enumerate(f):

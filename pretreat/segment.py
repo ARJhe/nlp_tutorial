@@ -1,6 +1,5 @@
-import jieba
-import logging
-
+# -*- coding: utf-8 -*-
+import jieba, logging
 
 def main():
     logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
@@ -19,15 +18,17 @@ def main():
         for texts_num, line in enumerate(content):
             line = line.strip('\n')
             words = jieba.cut(line, cut_all=False)
-            for word in words:
-                if word not in stopword_set:
-                    output.write(word + ' ')
-            output.write('\n')
+            try:
+                for word in words:
+                    if word not in stopword_set:
+                        output.write(word + ' ')
+                output.write('\n')
+            except Exception as e:
+                print(e)
 
             if (texts_num + 1) % 10000 == 0:
                 logging.info("已完成前 %d 行的斷詞" % (texts_num + 1))
     output.close()
-
 
 if __name__ == '__main__':
     main()

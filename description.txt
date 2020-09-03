@@ -4,10 +4,40 @@ pip3 install --upgrade gensim
 
 pip3 install django==3.0.2
 pip install psycopg2
-NLP
-1. 樣板式
-2. 檢索式
-3. 生成式
+pip3 install djangorestframework
 
-Approch:
-輸入分詞後抓取重點字，ex: 幫我開「燈」
+pip install -U ckiptagger[tf,gdown]
+jieba 語料:
+1. Download wiki article from wiki               (w2t.py)
+2. decompress and convert to traditional Chinese (s2t.py)
+3. break source to segment: jieba/dict.txt to traditional Chinese and Stopwords
+
+
+Django:
+# create a project then with a app
+1. django-admin startproject web_console
+2. django-admin startapp seman
+# seman app create a page as default page
+3. seman/views.py
+  def home(request):
+    return render(request, 'seman/home.html')
+4. seman/urls.py
+  from . import views
+    urlpatterns = [
+        path('', views.home),
+    ]
+# create a dir and html file
+5. seman/templates/seman/home.html
+6. web_console/settings.py
+  INSTALLED_APPS = [
+    ...
+    'seman.apps.SemanConfig',
+  ]
+# point default page to seman.urls's default page ('' means default)
+7. web_console/urls.py
+  from django.urls import path, include
+
+  urlpatterns = [
+    ...
+    path('', include('seman.urls')),
+  ]
