@@ -1,0 +1,5 @@
+jieba
+--upgrade gensim
+django==3.0.2
+pip install psycopg2
+djangorestframework

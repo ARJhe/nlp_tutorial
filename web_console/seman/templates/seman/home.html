@@ -1,11 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <input type="text" value="input"/>
-</head>
-<body>
+{% extends "seman/base.html" %}
+{% block content%}
+    {% csrf_token %}
+    <div class="response">
+        <div id="info">
+            <h1>
+                Nature Language Processing Demonstration
+            </h1>
+        </div>
+        <div id="result">
 
-</body>
-</html>
+        </div>
+    </div>
+    <div class="footer">
+        <input type="text" placeholder="input" id="input"/>
+        |
+        <button id="myClickButton" type="button">Click</button>
+    </div>
+{% endblock content%}
+{% block javascript %}
+<script>
+    function semantic_analysis(){
+        var _input = $("#input").val();
+        console.log("querying input: "+ _input);
+        if(_input){
+            $.ajax({
+                type: 'GET',
+                url: "{% url 'seman_output' %}",
+                data: {"input": _input},
+                success: function (response) {
+                    $('#result').text(response["output"]);
+                    $("#input").val("");
+                },
+                error: function (response) {
+                    console.log(response)
+                }
+            })
+        }
+    }
+    $("#myClickButton").click(function() {
+        semantic_analysis();
+    });
+    $("#input").on("keydown", function(e){
+        if (e.which == 13){
+            semantic_analysis();
+        }
+    });
+
+</script>
+{% endblock javascript %}

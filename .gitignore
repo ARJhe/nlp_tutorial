@@ -2,8 +2,11 @@
 source_data/
 venv/
 pretreat/jieba_dict
+trained_source/
 pretreat/converted_text.txt
 pretreat/wiki_seg.txt
 wiki_texts.txt
-
+*.pyc
+*.npy
+word2vec.model
 source_data/zhwiki-latest-pages-articles.xml.bz2
